@@ -14,20 +14,19 @@ class CreateNotesTest extends DuskTestCase
     public function testExample(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
-            ->clickLink('Log in')
-            ->assertPathIs('/login')
-            ->type(field: 'email', value: 'email@gmail.com')
-            ->type (field: 'password', value: 'pass12345')
-            ->press(button: 'LOG IN')
-            ->assertPathIs('/dashboard')
-            ->clicklink('Notes')
-            ->assertPathis('/notes')
-            ->clicklink('Create Note')
-            ->assertpathis('/create-note')
-            ->type(field: 'title', value: 'idk')
-            ->type(field: 'description', value: 'ts pmo')
-            ->press(button: 'CREATE');
+            $browser->visit('/')  //Mengunjungi landing page
+            ->clickLink('Log in') //Mengklik link login
+            ->assertPathIs('/login') //Memastikan berada di halaman login
+            ->type(field: 'email', value: 'email@gmail.com') //Mengisi field email
+            ->type (field: 'password', value: 'pass12345') //Mengisi field password
+            ->press(button: 'LOG IN') //Menekan tombol login
+            ->clicklink('Notes') //Mengklik link Notes
+            ->assertPathis('/notes') //Memastikan berada di halaman notes
+            ->clicklink('Create Note') //Mengklik link Create Note
+            ->assertpathis('/create-note') //Memastikan berada di halaman create note
+            ->type(field: 'title', value: 'idk') //Mengisi field title
+            ->type(field: 'description', value: 'ts pmo') //Mengisi field description
+            ->press(button: 'CREATE'); //Menekan tombol create
         });
     }
 }

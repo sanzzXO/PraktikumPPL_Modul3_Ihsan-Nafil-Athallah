@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
-class ShowNotesTest extends DuskTestCase
+class DeleteNotesTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
@@ -20,9 +20,10 @@ class ShowNotesTest extends DuskTestCase
             ->type(field: 'email', value: 'email@gmail.com') // Mengisi field email
             ->type (field: 'password', value: 'pass12345') // Mengisi field password
             ->press(button: 'LOG IN') // Menekan tombol login
-            ->assertPathIs('/dashboard') // Memastikan berada di halaman dashboard
-            ->visit('note/1') // Mengunjungi halaman note dengan ID 1
-            ->assertPathIs('/note/1'); // Memastikan berada di halaman note dengan ID 1
+            ->clicklink('Notes') // Mengklik link Notes
+            ->assertPathis('/notes') // Memastikan berada di halaman notes
+            ->press('Delete') // Mengklik tombol Delete    
+            ->assertPathIs('/notes'); // Memastikan berada di halaman notes
         });
     }
 }

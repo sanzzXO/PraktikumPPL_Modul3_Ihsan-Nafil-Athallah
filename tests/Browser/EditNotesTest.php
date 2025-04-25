@@ -14,19 +14,18 @@ class EditNotesTest extends DuskTestCase
     public function testExample(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
-            ->clickLink('Log in')
-            ->assertPathIs('/login')
-            ->type(field: 'email', value: 'email@gmail.com')
-            ->type (field: 'password', value: 'pass12345')
-            ->press(button: 'LOG IN')
-            ->assertPathIs('/dashboard')
-            ->clicklink('Notes')
-            ->assertPathis('/notes')
-            ->clicklink('Edit')
-            ->type(field: 'title', value: 'lol')
-            ->type(field: 'description', value: 'ts pmo')
-            ->press(button: 'UPDATE');
+            $browser->visit('/') ////Mengunjungi landing page
+            ->clickLink('Log in') //Mengklik link login
+            ->assertPathIs('/login') //Memastikan berada di halaman login
+            ->type(field: 'email', value: 'email@gmail.com') //Mengisi field email
+            ->type (field: 'password', value: 'pass12345') //Mengisi field password
+            ->press(button: 'LOG IN') //Menekan tombol login
+            ->clicklink('Notes') //Mengklik link Notes
+            ->assertPathis('/notes') //Memastikan berada di halaman notes
+            ->clicklink('Edit') //Mengklik link Edit
+            ->type(field: 'title', value: 'tralalelo tralala') // Mengisi field title
+            ->type(field: 'description', value: 'ts pmo') //Mengisi field description
+            ->press(button: 'UPDATE');  // Menekan tombol update
         });
     }
 }

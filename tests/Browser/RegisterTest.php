@@ -18,11 +18,11 @@ class RegisterTest extends DuskTestCase
                     ->clickLink('Register') //click link register
                     ->assertPathIs('/register') //memastikan path
                     ->type(field : 'name', value :'ihsan') //mengisi field nama
-                    ->type(field: 'email', value: 'email@gmail.com')
-                    ->type (field: 'password', value: 'pass12345')
-                    ->type(field: 'password_confirmation', value:'pass12345')
-                    ->press(button: 'REGISTER')
-                    ->assertPathIs('/dashboard');
+                    ->type(field: 'email', value: 'email@gmail.com') //mengisi field email
+                    ->type (field: 'password', value: 'pass12345') //mengisi field password
+                    ->type(field: 'password_confirmation', value:'pass12345') //mengisi field konfirmasi password
+                    ->press(button: 'REGISTER') //menekan tombol register
+                    ->assertPathIs('/dashboard'); //memastikan path menuju dashboard
         });
     }
 }
